@@ -34,7 +34,7 @@ dataSources:
           handler: handleArtifactDeposited
         - event: ArtifactWithdrawn(address,uint256,uint256)
           handler: handleArtifactWithdrawn
-        - event: ArtifactFound(address,uint256,uint256)
+        - event: ArtifactFound(address,uint256,uint256,uint256,uint256)
           handler: handleArtifactFound
         - event: ArtifactActivated(address,uint256,uint256)
           handler: handleArtifactActivated

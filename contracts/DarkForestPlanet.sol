@@ -26,6 +26,7 @@ library DarkForestPlanet {
     event ArtifactActivated(address player, uint256 artifactId, uint256 loc);
     event ArtifactDeactivated(address player, uint256 artifactId, uint256 loc);
     event PlanetUpgraded(address player, uint256 loc, uint256 branch, uint256 toBranchLevel);
+    event PlanetChangeOwner(address player, uint256 loc);
 
     function isPopCapBoost(uint256 _location) public pure returns (bool) {
         bytes memory _b = abi.encodePacked(_location);
@@ -309,6 +310,7 @@ library DarkForestPlanet {
             _planet.isHomePlanet = true;
             _planet.owner = msg.sender;
             _planet.population = 50000;
+            emit PlanetChangeOwner(msg.sender, args.location);
         }
     }
 

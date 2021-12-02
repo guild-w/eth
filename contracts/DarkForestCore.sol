@@ -38,12 +38,13 @@ contract DarkForestCore is Initializable, DarkForestStorageV1 {
     );
     event AdminPlanetCreated(uint256 loc);
     event PlanetUpgraded(address player, uint256 loc, uint256 branch, uint256 toBranchLevel); // emitted in DFPlanet library
+    event PlanetChangeOwner(address player, uint256 loc); // emitted in DFLazyUpdate library
     event PlanetHatBought(address player, uint256 loc, uint256 tohatLevel);
     event PlanetTransferred(address sender, uint256 loc, address receiver);
     event LocationRevealed(address revealer, uint256 loc, uint256 x, uint256 y);
 
     event PlanetProspected(address player, uint256 loc);
-    event ArtifactFound(address player, uint256 artifactId, uint256 loc);
+    event ArtifactFound(address player, uint256 artifactId, uint256 loc, uint256 artifact_type, uint256 rarity);
     event ArtifactDeposited(address player, uint256 artifactId, uint256 loc);
     event ArtifactWithdrawn(address player, uint256 artifactId, uint256 loc);
     event ArtifactActivated(address player, uint256 artifactId, uint256 loc); // emitted in DFPlanet library
@@ -489,12 +490,12 @@ contract DarkForestCore is Initializable, DarkForestStorageV1 {
             );
         }
 
-        uint256 foundArtifactId =
+        DarkForestTypes.Artifact memory foundArtifact =
             DarkForestArtifactUtils.findArtifact(
                 DarkForestTypes.DFPFindArtifactArgs(planetId, biomebase, address(this))
             );
 
-        emit ArtifactFound(msg.sender, foundArtifactId, planetId);
+        emit ArtifactFound(msg.sender, foundArtifact.id, planetId, uint256(foundArtifact.artifactType), uint256(foundArtifact.rarity));
     }
 
     function depositArtifact(uint256 locationId, uint256 artifactId) public notPaused {
@@ -557,7 +558,7 @@ contract DarkForestCore is Initializable, DarkForestStorageV1 {
     }
 
     // withdraw silver
-    function withdrawSilver(uint256 locationId, uint256 amount) public notPaused {
+    function withdrawSilver(uint256 locationId, uint256 amount) public notPaused notTokenEnded {
         refreshPlanet(locationId);
         DarkForestPlanet.withdrawSilver(locationId, amount);
         emit PlanetSilverWithdrawn(msg.sender, locationId, amount);

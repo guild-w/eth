@@ -159,6 +159,7 @@ const AdminPlanet = yup
     planetType: yup.number().required(),
     requireValidLocationId: yup.boolean().required(),
     revealLocation: yup.boolean().required(),
+    defense: yup.number().required(),
   })
   .defined();
 

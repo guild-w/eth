@@ -71,6 +71,7 @@ library DarkForestTypes {
         uint256 level;
         PlanetType planetType;
         bool requireValidLocationId;
+        uint256 defense;
     }
 
     struct PlanetEventMetadata {

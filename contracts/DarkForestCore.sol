@@ -240,6 +240,12 @@ contract DarkForestCore is Initializable, DarkForestStorageV1 {
                 false
             )
         );
+
+        DarkForestTypes.Planet storage _planet = s.planets[args.location];
+        if (args.defense > 0) {
+            _planet.defense = args.defense;
+        }
+
         s.planetIds.push(args.location);
         s.initializedPlanetCountByLevel[args.level] += 1;
     }

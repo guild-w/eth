@@ -22,6 +22,12 @@ library DarkForestLazyUpdate {
         ret = getGameStorage();
     }
 
+    // also need to copy some of DFCore's event signatures
+    event ArtifactActivated(address player, uint256 artifactId, uint256 loc);
+    event ArtifactDeactivated(address player, uint256 artifactId, uint256 loc);
+    event PlanetUpgraded(address player, uint256 loc, uint256 branch, uint256 toBranchLevel);
+    event PlanetChangeOwner(address player, uint256 loc);
+
     function _updateSilver(
         uint256 updateToTime,
         DarkForestTypes.Planet memory planet,
@@ -162,6 +168,7 @@ library DarkForestLazyUpdate {
                     // make sure pop is never 0
                     planet.population = 1;
                 }
+                emit PlanetChangeOwner(planet.owner, arrival.toPlanet);
             }
         }
 

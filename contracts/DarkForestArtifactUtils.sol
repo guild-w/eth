@@ -25,6 +25,7 @@ library DarkForestArtifactUtils {
     event ArtifactActivated(address player, uint256 artifactId, uint256 loc);
     event ArtifactDeactivated(address player, uint256 artifactId, uint256 loc);
     event PlanetUpgraded(address player, uint256 loc, uint256 branch, uint256 toBranchLevel);
+    event PlanetChangeOwner(address player, uint256 loc);
 
     // verifies that user is allowed to call findArtifact on this planet
     function checkFindArtifact(
@@ -46,7 +47,7 @@ library DarkForestArtifactUtils {
 
     function findArtifact(DarkForestTypes.DFPFindArtifactArgs memory args)
         public
-        returns (uint256 artifactId)
+        returns (DarkForestTypes.Artifact memory)
     {
         DarkForestTypes.Planet storage planet = s().planets[args.planetId];
         DarkForestTypes.PlanetExtendedInfo storage info = s().planetsExtendedInfo[args.planetId];
@@ -90,7 +91,7 @@ library DarkForestArtifactUtils {
             uint256(foundArtifact.rarity)
         ];
 
-        artifactId = foundArtifact.id;
+        return foundArtifact;
     }
 
     function activateArtifact(

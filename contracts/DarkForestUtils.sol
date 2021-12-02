@@ -181,7 +181,8 @@ library DarkForestUtils {
         } else if (lastByteOfSeed < 216) {
             artifactType = DarkForestTypes.ArtifactType.BloomFilter;
         } else if (lastByteOfSeed < 231) {
-            artifactType = DarkForestTypes.ArtifactType.BlackDomain;
+            // change BlackDomain to PhotoidCannon for GuildW round
+            artifactType = DarkForestTypes.ArtifactType.PhotoidCannon;
         } else {
             // Commented out for v6 Round 3
             // if (biome == DarkForestTypes.Biome.Ice) {

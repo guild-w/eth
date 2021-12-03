@@ -54,7 +54,7 @@ contract Whitelist is Initializable {
         }
     }
 
-    event PlayerUseKey(address player, string key);
+    event PlayerUseKey(address player, bytes32 key);
 
     function useKey(string memory key, address owner) public onlyAdmin {
         require(!allowedAccounts[owner], "player already whitelisted");
@@ -65,7 +65,7 @@ contract Whitelist is Initializable {
         allowedKeyHashes[hashed] = false;
         // xDAI ONLY
         payable(owner).transfer(drip);
-        emit PlayerUseKey(owner, key);
+        emit PlayerUseKey(owner, hashed);
     }
 
     function removeFromWhitelist(address toRemove) public onlyAdmin {

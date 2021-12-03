@@ -541,6 +541,10 @@ library DarkForestPlanet {
             uint256[12] memory artifactIdsToAddToPlanet
         ) = getRefreshedPlanet(location, block.timestamp);
 
+        if (s().planets[location].owner != planet.owner) {
+            emit PlanetChangeOwner(planet.owner, location);
+        }
+
         s().planets[location] = planet;
         s().planetsExtendedInfo[location] = planetInfo;
 

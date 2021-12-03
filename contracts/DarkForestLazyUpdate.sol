@@ -168,7 +168,6 @@ library DarkForestLazyUpdate {
                     // make sure pop is never 0
                     planet.population = 1;
                 }
-                emit PlanetChangeOwner(planet.owner, arrival.toPlanet);
             }
         }
 

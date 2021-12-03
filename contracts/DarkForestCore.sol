@@ -134,25 +134,25 @@ contract DarkForestCore is Initializable, DarkForestStorageV1 {
     /// ACCESS CONTROL ///
     //////////////////////
     modifier onlyAdmin() {
-        require(msg.sender == s.adminAddress, "Sender is not a game master");
+        require(msg.sender == s.adminAddress, "not game master");
         _;
     }
 
     modifier onlyWhitelisted() {
         require(
             s.whitelist.isWhitelisted(msg.sender) || msg.sender == s.adminAddress,
-            "Player is not whitelisted"
+            "not whitelisted"
         );
         _;
     }
 
     modifier disabled() {
-        require(false, "This functionality is disabled for the current round.");
+        require(false, "functionality is disabled");
         _;
     }
 
     modifier notPaused() {
-        require(!s.paused, "Game is paused");
+        require(!s.paused, "paused");
         _;
     }
 
@@ -190,12 +190,12 @@ contract DarkForestCore is Initializable, DarkForestStorageV1 {
     }
 
     function pause() public onlyAdmin {
-        require(!s.paused, "Game is already paused");
+        require(!s.paused, "already paused");
         s.paused = true;
     }
 
     function unpause() public onlyAdmin {
-        require(s.paused, "Game is already unpaused");
+        require(s.paused, "already unpaused");
         s.paused = false;
     }
 
@@ -227,7 +227,7 @@ contract DarkForestCore is Initializable, DarkForestStorageV1 {
     function createPlanet(DarkForestTypes.AdminCreatePlanetArgs memory args) public onlyAdmin {
         require(s.ADMIN_CAN_ADD_PLANETS, "admin can no longer add planets");
         if (args.requireValidLocationId) {
-            require(DarkForestUtils._locationIdValid(args.location), "Not a valid planet location");
+            require(DarkForestUtils._locationIdValid(args.location), "invalid planet location");
         }
         DarkForestTypes.SpaceType spaceType = DarkForestUtils.spaceTypeFromPerlin(args.perlin);
         DarkForestPlanet._initializePlanet(
@@ -388,7 +388,7 @@ contract DarkForestCore is Initializable, DarkForestStorageV1 {
         }
 
         // check radius
-        require(newRadius <= s.worldRadius, "Attempting to move out of bounds");
+        require(newRadius <= s.worldRadius, "out of bounds");
 
         // Only perform if the toPlanet have never initialized previously
         if (!s.planetsExtendedInfo[newLoc].isInitialized) {
@@ -451,7 +451,7 @@ contract DarkForestCore is Initializable, DarkForestStorageV1 {
             "Can only transfer ownership to initialized players"
         );
 
-        require(!s.planetsExtendedInfo[_location].destroyed, "can't transfer a destroyed planet");
+        require(!s.planetsExtendedInfo[_location].destroyed, "destroyed planet");
 
         s.planets[_location].owner = _player;
 
@@ -465,11 +465,11 @@ contract DarkForestCore is Initializable, DarkForestStorageV1 {
         );
         refreshPlanet(_location);
 
-        require(s.planets[_location].owner == msg.sender, "Only owner can buy hat for planet");
+        require(s.planets[_location].owner == msg.sender, "Only owner can buy hat");
 
         uint256 cost = (1 << s.planetsExtendedInfo[_location].hatLevel) * 1 ether;
 
-        require(msg.value == cost, "Wrong value sent");
+        require(msg.value == cost, "Wrong value");
 
         s.planetsExtendedInfo[_location].hatLevel += 1;
         emit PlanetHatBought(msg.sender, _location, s.planetsExtendedInfo[_location].hatLevel);

@@ -4,19 +4,19 @@
 [initializers]
 ADMIN_CAN_ADD_PLANETS = true
 WORLD_RADIUS_LOCKED = false
-TOKEN_MINT_END_TIMESTAMP = 2021-10-05T04:00:00.000Z # Mon Oct 04 2021 21:00:00 GMT-0700 (Pacific Daylight Time)
-TARGET4_RADIUS = 1600
+TOKEN_MINT_END_TIMESTAMP = 2021-12-05T16:00:00.000Z
+TARGET4_RADIUS = 50000
 INITIAL_WORLD_RADIUS = 8000
-ROUND_NAME = "0.6.6 round 4"
-ROUND_END = 2021-10-05T04:00:00.000Z # Mon Oct 04 2021 21:00:00 GMT-0700 (Pacific Daylight Time)
+ROUND_NAME = "Guild W round 1"
+ROUND_END = 2021-12-05T16:00:00.000Z 
 
 ##################################
 # SNARK keys & Perlin parameters #
 ##################################
 DISABLE_ZK_CHECKS = false
-PLANETHASH_KEY = 6278
-SPACETYPE_KEY = 6279
-BIOMEBASE_KEY = 6270
+PLANETHASH_KEY = 6280
+SPACETYPE_KEY = 6281
+BIOMEBASE_KEY = 6282
 PERLIN_MIRROR_X = false
 PERLIN_MIRROR_Y = false
 PERLIN_LENGTH_SCALE = 16384 # must be a power of two no greater than 16384
@@ -25,7 +25,7 @@ PERLIN_LENGTH_SCALE = 16384 # must be a power of two no greater than 16384
 # Game configuration #
 ######################
 MAX_NATURAL_PLANET_LEVEL = 256
-TIME_FACTOR_HUNDREDTHS = 600 # speedup/slowdown game
+TIME_FACTOR_HUNDREDTHS = 1200 # speedup/slowdown game
 PERLIN_THRESHOLD_1 = 14
 PERLIN_THRESHOLD_2 = 15
 PERLIN_THRESHOLD_3 = 19
@@ -35,7 +35,7 @@ SPAWN_RIM_AREA = 0
 BIOME_THRESHOLD_1 = 15
 BIOME_THRESHOLD_2 = 17
 PLANET_RARITY = 16384
-PHOTOID_ACTIVATION_DELAY = 14400 # seconds
+PHOTOID_ACTIVATION_DELAY = 1800 # seconds
 LOCATION_REVEAL_COOLDOWN = 86400 # seconds
 CLAIM_PLANET_COOLDOWN = 10800 # seconds
 PLANET_TYPE_WEIGHTS = [
@@ -93,11 +93,342 @@ PLANET_TYPE_WEIGHTS = [
 ##########################
 # Planets to add to game #
 ##########################
+#RhizomeDAO
 [[planets]]
-  x = 5000
-  y = 0
-  level = 9
-  planetType = 4
+  x = 0
+  y = 200000
+  level = 7
+  planetType = 0
   requireValidLocationId = false
   revealLocation = true
-  defense = 1000
+  defense = 100
+
+#DFDAO
+[[planets]]
+  x = 173205
+  y = -100000
+  level = 7
+  planetType = 0
+  requireValidLocationId = false
+  revealLocation = true
+  defense = 100
+
+#ORDEN GG
+[[planets]]
+  x = -173205
+  y = -100000
+  level = 7
+  planetType = 0
+  requireValidLocationId = false
+  revealLocation = true
+  defense = 100
+
+#Dragonfly Capital
+[[planets]]
+  x = -133680
+  y = -15042
+  level = 9
+  planetType = 1
+  requireValidLocationId = false
+  revealLocation = true
+  defense = 100
+
+#Yuanyuzhou Ventures
+#[[planets]]
+#  x = -2769
+#  y = 28547
+#  level = 9
+#  planetType = 3
+#  requireValidLocationId = false
+#  revealLocation = true
+#  defense = 0
+
+#Yuanyuzhou Ventures
+[[planets]]
+  x = 35189
+  y = 6267
+  level = 9
+  planetType = 3
+  requireValidLocationId = false
+  revealLocation = true
+  defense = 0
+
+#Evernew Capital
+[[planets]]
+  x = 6247
+  y = -135653
+  level = 8
+  planetType = 0
+  requireValidLocationId = false
+  revealLocation = true
+  defense = 0
+
+#EM3DAO
+[[planets]]
+  x = 130000
+  y = 100000
+  level = 8
+  planetType = 3
+  requireValidLocationId = false
+  revealLocation = true
+  defense = 0
+
+#EM3DAO
+#[[planets]]
+#  x = -100000
+#  y = -140000
+#  level = 8
+#  planetType = 3
+#  requireValidLocationId = false
+#  revealLocation = true
+#  defense = 0
+
+#IOSG Ventures
+[[planets]]
+  x = -80000
+  y = 120000
+  level = 7
+  planetType = 1
+  requireValidLocationId = false
+  revealLocation = true
+  defense = 0
+
+#RSS3
+[[planets]]
+  x = 90000
+  y = -120000
+  level = 6
+  planetType = 2
+  requireValidLocationId = false
+  revealLocation = true
+  defense = 0
+
+#RSS3
+[[planets]]
+  x = 50000
+  y = 56000
+  level = 5
+  planetType = 2
+  requireValidLocationId = false
+  revealLocation = true
+  defense = 0
+
+#RSS3
+[[planets]]
+  x = 90000
+  y = 100000
+  level = 5
+  planetType = 2
+  requireValidLocationId = false
+  revealLocation = true
+  defense = 0
+
+#RSS3
+[[planets]]
+  x = -120000
+  y = 130000
+  level = 5
+  planetType = 2
+  requireValidLocationId = false
+  revealLocation = true
+  defense = 0
+
+#RSS3
+[[planets]]
+  x = -100000
+  y = -50000
+  level = 5
+  planetType = 2
+  requireValidLocationId = false
+  revealLocation = true
+  defense = 0
+
+#RSS3
+[[planets]]
+  x = -60000
+  y = -160000
+  level = 5
+  planetType = 2
+  requireValidLocationId = false
+  revealLocation = true
+  defense = 0
+
+#RSS3
+[[planets]]
+  x = 60000
+  y = -90000
+  level = 5
+  planetType = 2
+  requireValidLocationId = false
+  revealLocation = true
+  defense = 0
+
+#RSS3
+[[planets]]
+  x = 140000
+  y = 90000
+  level = 6
+  planetType = 0
+  requireValidLocationId = false
+  revealLocation = true
+  defense = 0
+
+#RSS3
+[[planets]]
+  x = -160000
+  y = 50000
+  level = 6
+  planetType = 0
+  requireValidLocationId = false
+  revealLocation = true
+  defense = 0
+
+#RSS3
+[[planets]]
+  x = -50000
+  y = 30000
+  level = 6
+  planetType = 0
+  requireValidLocationId = false
+  revealLocation = true
+  defense = 0
+
+#RSS3
+[[planets]]
+  x = -70000
+  y = -40000
+  level = 6
+  planetType = 0
+  requireValidLocationId = false
+  revealLocation = true
+  defense = 0
+
+#RSS3
+[[planets]]
+  x = -170000
+  y = -140000
+  level = 6
+  planetType = 0
+  requireValidLocationId = false
+  revealLocation = true
+  defense = 0
+
+#RSS3
+[[planets]]
+  x = 180000
+  y = -20000
+  level = 6
+  planetType = 0
+  requireValidLocationId = false
+  revealLocation = true
+  defense = 0
+
+#Mask
+[[planets]]
+  x = -190000
+  y = 1000
+  level = 7
+  planetType = 2
+  requireValidLocationId = false
+  revealLocation = true
+  defense = 0
+
+#Real Satoshi
+[[planets]]
+  x = -24600
+  y = 1776
+  level = 8
+  planetType = 0
+  requireValidLocationId = false
+  revealLocation = true
+  defense = 0
+
+#RPC NFT
+[[planets]]
+  x = 17555
+  y = 97088
+  level = 8
+  planetType = 0
+  requireValidLocationId = false
+  revealLocation = true
+  defense = 0
+
+#Mirror World
+[[planets]]
+  x = 77860
+  y = 180950
+  level = 7
+  planetType = 0
+  requireValidLocationId = false
+  revealLocation = true
+  defense = 0
+
+#Blocto
+[[planets]]
+  x = -99287
+  y = 63637
+  level = 7
+  planetType = 0
+  requireValidLocationId = false
+  revealLocation = true
+  defense = 0
+
+#Blocto
+[[planets]]
+  x = 183395
+  y = 31129
+  level = 7
+  planetType = 0
+  requireValidLocationId = false
+  revealLocation = true
+  defense = 0
+
+#Blocto
+[[planets]]
+  x = -28146
+  y =  -197843
+  level = 7
+  planetType = 0
+  requireValidLocationId = false
+  revealLocation = true
+  defense = 0
+
+#Impossible Finance
+[[planets]]
+  x = -84211
+  y = -95607
+  level = 7
+  planetType = 0
+  requireValidLocationId = false
+  revealLocation = true
+  defense = 0
+
+#Matrix World
+[[planets]]
+  x = 72678
+  y = -44724
+  level = 7
+  planetType = 0
+  requireValidLocationId = false
+  revealLocation = true
+  defense = 0
+
+#DAppChaser
+[[planets]]
+  x = -18723
+  y = 119703
+  level = 6
+  planetType = 2
+  requireValidLocationId = false
+  revealLocation = true
+  defense = 0
+
+#01a1
+[[planets]]
+  x = 89167
+  y = 46205
+  level = 7
+  planetType = 0
+  requireValidLocationId = false
+  revealLocation = true
+  defense = 0
